@@ -6,6 +6,9 @@ List<Contact> Conlist = [SELECT  Email,AccountId FROM Contact];
         for (Account acc : Trigger.new) {
             if (acc.Id == con.AccountId) {
                 if (con.Email != null) {
+                    if (acc.Name != Trigger.oldMap.get(acc.Id).Name) {
+                        
+                    
                     Messaging.SingleEmailMessage emailMsg = new  Messaging.SingleEmailMessage();
                     String[] toAddress = new String[] {con.Email};
                     emailMsg.setToAddresses(toAddress);
@@ -16,6 +19,7 @@ List<Contact> Conlist = [SELECT  Email,AccountId FROM Contact];
                     String context = 'Hi Your Parent Account'+' '+acc.Name+' ' +'has Changed';
                     emailMsg.setHtmlBody(context);
                     emailList.add(emailMsg);
+                    }
                 }
             }
             
