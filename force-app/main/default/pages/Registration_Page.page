@@ -1,0 +1,217 @@
+<apex:page sidebar="false" showHeader="false">
+    <style>
+        body{
+    background-color: teal;
+    font-size: 20px;
+}
+/* form{
+    margin: 3%; 
+     height: 100%;
+    color: green;
+    background-color: white;
+} */
+.Container{
+    /* border-radius: 5%; */
+    height: 100%;
+    color: green;
+    background-color: white;
+
+}
+.D1{
+    color: black;
+   background-color: lightgrey;
+   text-align: center; 
+   padding: 5px;
+}
+.D2{ 
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.D21{
+    margin-left: 2%;
+    width: 45% ;
+    margin-right: 4%;
+    
+}
+.D22{
+    margin-right: 2%;
+    width: 45%;
+    
+}
+#fname,#lname{
+    width: 100%;
+    height: 25px;
+}
+.D3{
+    margin-top: 2%;
+    width: 97%;
+    margin-left: 2%;
+}
+#mail{
+    width: 97%;
+    height: 25px;
+}
+.D4{ 
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.D41{
+    margin-left: 2%;
+    width: 45% ;
+    margin-right: 4%;
+    
+}
+.D42{
+    margin-right: 2%;
+    width: 45%;   
+}
+#pass,#passagain{
+    width: 100%;
+    height: 25px;
+}
+.D5{ 
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.D51{
+    margin-left: 2%;
+    width: 45% ;
+    margin-right: 4%;
+    
+}
+.D52{
+    margin-right: 2%;
+    width: 45%;   
+}
+#R1,#R2,#C1,#C2,#C3,#C4{
+margin-right: 1%;
+}
+.D6{ 
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.D61{
+    margin-left: 2%;
+    width: 45% ;
+    margin-right: 4%;
+    
+}
+.D62{
+    margin-right: 2%;
+    width: 45%;   
+}
+#price{
+    background-color: green;
+    width: 25px;
+}
+.D7{ 
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.D71{
+    margin-left: 2%;
+    width: 45% ;
+    margin-right: 4%;
+    
+}
+.D72{
+    margin-right: 2%;
+    width: 45%;   
+}
+.D8{
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 97%;
+}
+#TA{
+    width: 97%;
+}
+.D9{
+    margin-top: 2%;
+    width: 100%;
+    height: 40px;
+    /* background-color: lightgrey; */
+    /* padding-right: 40%; */
+}
+#B1{
+    background-color: green;
+    padding: 5px;
+    float: right;
+    margin-right: 3.5%;
+    /* height: 30px; */
+}
+    </style>
+    <apex:form>
+        <div class="D1">
+            <h1>Create Account</h1>
+        </div>
+
+        <div class="D2">
+            <div class="D21">
+                <h3>First Name* </h3> <input type="text" placeholder="Enter Your First Name" id="fname"/>
+            </div>
+            <div class="D22">
+                <h3>Last Name </h3> <input type="text" placeholder="Enter Your Last Name" id="lname"/>
+            </div>
+        </div>
+        <div class="D3">
+            <h3>Email*</h3>
+            <input type="email" placeholder="Enter Your Email " id="mail"/>
+        </div>
+        <div class="D4">
+            <div class="D41">
+                <h3>Password* </h3> <input type="password" placeholder="Enter Your Password" id="pass"/>
+            </div>
+            <div class="D42">
+                <h3>Confirm Password* </h3> <input type="password" placeholder="Enter Your Password" id="passagain"/>
+            </div>
+        </div>
+        <div class="D5">
+            <div class="D51">
+                <h3>Gender</h3>
+                <h2><input type="radio" name="gender" id="R1"/> Male<input type="radio" name="gender" id="R2"/> Female
+                </h2>
+            </div>
+            <div class="D52">
+                <h3>Hobbies</h3>
+                <h2><input type="checkbox" name="" id="C1"/>Music
+                    <input type="checkbox" name="" id="C2"/>Sports
+                    <input type="checkbox" name="" id="C3"/> Travel
+                    <input type="checkbox" name="" id="C4"/>Movies
+                </h2>
+            </div>
+        </div>
+        <div class="D6">
+            <div class="D61">
+                <h3>Source Of Income</h3>
+                <select name="" id="">
+                    <option value="">Employed</option>
+                    <option value="">Studen</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="D7">
+            <div class="D71">
+                <h3>Upload profile Picture</h3> <input type="file"/>
+            </div>
+            <div class="D72">
+                <h3>Age</h3> <input type="number" value="18"/>
+            </div>
+        </div>
+        
+        <div class="D9">
+        <button id="B1">Create</button>
+        </div>    
+    </apex:form>
+</apex:page>

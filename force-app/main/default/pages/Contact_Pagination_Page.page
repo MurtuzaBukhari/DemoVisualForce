@@ -1,0 +1,16 @@
+<apex:page controller="Contact_Pagination_class">
+    <apex:form >
+        <apex:pageBlock id="pb" title="Contact" >
+            <apex:pageBlockTable value="{!Contacts}" var="c" id="pt">
+                <apex:column value="{!c.Name}" />
+                <apex:column value="{!c.Phone}" />
+                <apex:column value="{!c.Account.Id}" />
+                <apex:column value="{!c.Id}" />
+            </apex:pageBlockTable>
+            <apex:commandButton value="First" action="{!ssc.first}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb" />
+            <apex:commandButton value="Previous" action="{!ssc.previous}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb" />
+            <apex:commandButton value="Next" action="{!ssc.next}" disabled="{!!ssc.hasNext}" reRender="pt,pb" />
+            <apex:commandButton value="End" action="{!ssc.last}" disabled="{!!ssc.hasNext}" reRender="pt,pb" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
