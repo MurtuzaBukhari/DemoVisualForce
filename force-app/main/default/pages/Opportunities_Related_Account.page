@@ -1,11 +1,12 @@
-<apex:page controller="Contact_Pagination_class">
+<apex:page controller="Opportunities_Related_Account">
 <apex:form>
 <apex:pageBlock id="details">
-    <apex:pageBlockTable value="{!con}" var="c">
-        <apex:column value="{!c.Name}"/>
-        <apex:column value="{!c.Phone}"/>
-        <apex:column value="{!c.Id}"/>
-        <apex:column value="{!c.AccountId}"/>
+    <apex:pageBlockTable value="{!acc}" var="a">
+        <!-- <apex:column value="{!a.Name}"/> --> 
+        <apex:column>
+            <apex:outputLink value="/apex/Account_Related_Opportunities?id={!a.Id}"> {!a.Name} </apex:outputLink>
+        </apex:column>
+        <apex:column value="{!a.Id}"/>
     </apex:pageBlockTable>
     <apex:pageBlockButtons>
         <apex:commandButton value="First" reRender="details" action="{!first}" disabled="{!prev}"/>
