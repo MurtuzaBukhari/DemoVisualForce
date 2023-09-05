@@ -1,4 +1,4 @@
-trigger The_Great_Problem on Contact (before insert) {
+trigger The_Great_Problem on Contact (before insert,before update) {
     System.debug('Trigger is running');
     // Set<Id> accountIds = new Set<Id>();
     List<Contact> conList = new List<Contact>();
