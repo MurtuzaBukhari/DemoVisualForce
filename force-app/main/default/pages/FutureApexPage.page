@@ -1,0 +1,7 @@
+<apex:page  controller="futureApexClass">
+<apex:form>
+    <center>
+        <apex:commandButton action="{!saveImages}" value="Save" />
+    </center>
+</apex:form>
+</apex:page>
