@@ -1,4 +1,11 @@
 public class futureApexClass {
+    public class UrlWrapper {
+        public Urls urls; // Make sure this property is defined correctly.
+    }
+    
+    public class Urls {
+        public String regular;
+    }
     @future(callout = true)
     public static void saveImages(){
             String id1= ApexPages.currentPage().getParameters().get('recordId');
@@ -13,22 +20,22 @@ public class futureApexClass {
             System.debug('Response'+response);
             System.debug('Body'+response.getBody());
     
-            Blob imageBlob = response.getBodyAsBlob();
-            System.debug('blobBody'+EncodingUtil.Base64Encode(imageBlob));
-            System.debug('Image'+imageBlob);
+            // Blob imageBlob = response.getBodyAsBlob();
+            // System.debug('blobBody'+EncodingUtil.Base64Encode(imageBlob));
+            // System.debug('Image'+imageBlob);
 
-            Map<String,Object> results= (Map<String,Object>)JSON.deserializeUntyped(response.getBody());
-            Map<String,Object> newres = (Map<String,Object>)results.get('urls');
-            String imgurl = (String)newres.get('regular');
-            System.debug('newres'+ newres);
-            System.debug('imgurl'+ imgurl);
-            System.debug('results'+ results);
+            UrlWrapper wrapper = (UrlWrapper)System.JSON.deserialize(response.getBody(), UrlWrapper.class);
+            String imgurl_1 = wrapper.urls.regular;
+            System.debug('wrapper'+wrapper);
+            System.debug('imgurl_1'+imgurl_1);
+
 
 
             HttpRequest request_1 = new HttpRequest();
-            request_1.setEndpoint(imgurl);
+            request_1.setEndpoint(imgurl_1);
             request_1.setMethod('GET');
             HttpResponse response_1 = http.send(request_1);
+            System.debug('Response'+response_1);
             Blob img = response_1.getBodyAsBlob();
             System.debug('Img'+img);
 
