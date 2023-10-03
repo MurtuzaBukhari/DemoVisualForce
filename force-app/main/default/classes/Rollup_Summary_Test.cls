@@ -10,8 +10,6 @@ public class Rollup_Summary_Test {
         con.Amount_Trigger__c=50;
         con.AccountId=acc.Id;
         insert con;
-        acc.Total_Amount_Trigger__c=con.Amount_Trigger__c;
-        update acc;
         
     }
 }

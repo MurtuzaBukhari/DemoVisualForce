@@ -3,7 +3,7 @@ public class Sheep_Problem {
         Set<Id> str = new Set<Id>();
         Set<Id> str_1 = new Set<Id>();
 
-        // Collect new and old AccountIds
+       
         for (Contact con : newContacts) {
             if (con.AccountId != oldContactsMap.get(con.Id).AccountId) {
                 str.add(con.AccountId);
@@ -16,19 +16,19 @@ public class Sheep_Problem {
 
         List<Contact> conUpdate = new List<Contact>();
 
-        // Update Contact AccountId based on Account changes
+        
         for (Contact conToUpdate : conList) {
             if (conToUpdate.AccountId != null) {
                 for (Account acc : accList) {
                     conToUpdate.AccountId = acc.Id;
-                    conUpdate.add(conToUpdate.clone()); // Clone the Contact to avoid reference issues
+                    conUpdate.add(conToUpdate);
                 }
             }
         }
 
-        // Perform the Contact updates
-        if (!conUpdate.isEmpty()) {
+        
+    
             update conUpdate;
-        }
+
     }
 }
