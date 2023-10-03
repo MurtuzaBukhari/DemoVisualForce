@@ -1,10 +1,8 @@
 trigger The_Great_Problem on Contact (before insert,before update) {
     System.debug('Trigger is running');
-    // Set<Id> accountIds = new Set<Id>();
+    
     List<Contact> conList = new List<Contact>();
-    // for (Contact con : Trigger.new) {
-    //     accountIds.add(con.AccountId);
-    // }
+    
     for (Contact contact : Trigger.new) {
         if(Contact.AccountId != null){
             Account acc = [SELECT Id, Max_Amount__c FROM Account WHERE Id =: contact.AccountId];
@@ -29,7 +27,5 @@ trigger The_Great_Problem on Contact (before insert,before update) {
 }
 
 
-// Amount__c
-// Max_Amount__c 
 
 

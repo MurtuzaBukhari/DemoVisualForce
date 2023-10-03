@@ -1,6 +1,6 @@
 public class futureApexClass {
     public class UrlWrapper {
-        public Urls urls; // Make sure this property is defined correctly.
+        public Urls urls;
     }
     
     public class Urls {
