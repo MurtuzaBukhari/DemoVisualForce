@@ -16,7 +16,7 @@ trigger Task_5 on Account (after update,after delete , after insert , before ins
             task_5.Task_12(Trigger.new);
         }
     }
-    if (Trigger.isInsert && Trigger.isUpdate) {
+    if (Trigger.isInsert || Trigger.isUpdate) {
         if (Trigger.isAfter) {
             task_5.Task_9(Trigger.new);
         }

@@ -3,7 +3,7 @@ public class Account_Related_Opportunities {
     private integer index = 0;
     private integer size = 10;
 
-    public Account acc{get;set;}
+    
     public Account_Related_Opportunities(){
         
         totalRecords = [SELECT count() FROM Opportunity  ];
