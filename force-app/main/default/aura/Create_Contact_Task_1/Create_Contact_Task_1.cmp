@@ -1,0 +1,20 @@
+<aura:component controller="auraContatcCreateTask_1">
+        <div class="slds-form-header">
+            CONTACT  FORM 
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+            CONTACT NAME : <br/><br/>
+            <lightning:input type="text" aura:id="conName" />
+            <br/><br/>
+            CONTACT MOBILE NUMBER : <br/><br/>
+            <lightning:input type="text" aura:id="conNumber" />
+            <br/><br/>
+        </div>
+        <div class="slds-docked-form-footer">
+            <lightning:button variant="brand" label="CREATE CONTACT" onclick="{!c.createCon}"/>
+        </div>
+
+</aura:component>	
