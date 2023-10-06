@@ -53,11 +53,11 @@
         event.preventDefault();
     },
     onAcc1Drop : function(component, event, helper) {
-        var acc = component.find("input1").get("v.value");
-        helper.updateAccount1(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc);
+        var acc1 = component.find("input1").get("v.value");
+        helper.updateAccount1(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc1);
     },
     onAcc2Drop : function(component, event, helper) {
-        var acc = component.find("input2").get("v.value");
-        helper.updateAccount1(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc);   
+        var acc2 = component.find("input2").get("v.value");
+        helper.updateAccount1(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc2);   
     }
 })

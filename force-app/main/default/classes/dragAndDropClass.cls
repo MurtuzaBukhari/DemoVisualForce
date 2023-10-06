@@ -15,22 +15,23 @@ public class dragAndDropClass {
     public static List<Contact> updateAccountId1(Id accId, Id ConId){
         // System.debug('key'+searchKey2);
         // System.debug('Account 2'+[SELECT LastName FROM Contact WHERE AccountId  =:searchKey2].size());
-        List<Contact> conList = [SELECT LastName FROM Contact WHERE Id  =:ConId];
-            Contact con = new Contact();
+        // List<Contact> conList = [SELECT LastName FROM Contact WHERE Id  =:ConId];
+            Contact con = [SELECT LastName FROM Contact WHERE Id  =:ConId];
             con.AccountId = accId;
-            conList.add(con);
-            insert conList;
+            // conList.add(con);
+            update con;
         return [SELECT Id,LastName,Phone,AccountId FROM Contact WHERE AccountId =:accId];
     }
     @AuraEnabled
     public static List<Contact> updateAccountId2(Id accId, Id ConId){
         // System.debug('key'+searchKey2);
         // System.debug('Account 2'+[SELECT LastName FROM Contact WHERE AccountId  =:searchKey2].size());
-        List<Contact> conList = [SELECT LastName FROM Contact WHERE Id  =:ConId];
-            Contact con = new Contact();
+        // List<Contact> conList = [SELECT LastName FROM Contact WHERE Id  =:ConId];
+            Contact con = [SELECT LastName FROM Contact WHERE Id  =:ConId];
             con.AccountId = accId;
-            conList.add(con);
-            insert conList;
+            // conList.add(con);
+            update con;
+            
         return [SELECT Id,LastName,Phone,AccountId FROM Contact WHERE AccountId =:accId];
     }
 }
