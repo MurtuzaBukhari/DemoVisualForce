@@ -1,0 +1,17 @@
+<aura:component>
+    <lightning:card>
+        <lightning:layout>
+            <lightning:layoutItem>
+                 <div class="slds-box">
+                    <h1 style="font-size:40px; text-align:center;"><b>Account Number 1</b></h1>
+                </div>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem>
+                <div class="slds-box">
+                    <h1 style="font-size:40px; text-align:center;"><b>Account Number 2</b></h1>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>	
