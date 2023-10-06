@@ -1,17 +1,42 @@
-<aura:component>
+<aura:component controller="dragAndDropClass">
+    <aura:attribute name="paginationList_1" type="Contact[]" />
+    <aura:attribute name="paginationList_2" type="Contact[]" />
     <lightning:card>
         <lightning:layout>
-            <lightning:layoutItem>
-                 <div class="slds-box">
-                    <h1 style="font-size:40px; text-align:center;"><b>Account Number 1</b></h1>
+            <lightning:layoutitem size="4" padding="around-small">
+                <div class="slds-box" ondragover="{!c.allowDrop}" ondrop="{!c.onAcc1Drop}">
+                    <h1><b>Account Number 1 <br />
+                            Search
+                            <lightning:input type="text" aura:id="input1" value="Search Account By Id" />
+                            <lightning:button variant="brand" label="Search" onclick="{!c.searchAcc1}" />
+                        </b></h1><br />
+                    <aura:iteration items="{!v.paginationList_1}" var="item">
+                        <div class="slds-box" ondragstart="{!c.dragStart}" draggable="true" id="{!item.Id}">
+                            <b> Contact Name </b> : {!item.LastName}<br />
+                            <b> Contact Id </b>: {!item.Id}<br />
+                            <b> Contact Number </b>: {!item.Phone}<br />
+                            <!-- <b> Parent Id </b>: {!item.AccountId}<br/> -->
+                        </div>
+                    </aura:iteration>
                 </div>
-            </lightning:layoutItem>
-
-            <lightning:layoutItem>
-                <div class="slds-box">
-                    <h1 style="font-size:40px; text-align:center;"><b>Account Number 2</b></h1>
+            </lightning:layoutitem>
+            <lightning:layoutitem size="4" padding="around-small">
+                <div class="slds-box" ondragover="{!c.allowDrop}" ondrop="{!c.onAcc2Drop}">
+                    <h1><b>Account Number 2 <br />
+                            Search
+                            <lightning:input type="text" aura:id="input2" value="Search Account By Id" />
+                            <lightning:button variant="brand" label="Search" onclick="{!c.searchAcc2}" />
+                        </b></h1><br />
+                    <aura:iteration items="{!v.paginationList_2}" var="item">
+                        <div class="slds-box" ondragstart="{!c.dragStart}" draggable="true" id="{!item.Id}">
+                            <b> Contact Name </b>: {!item.LastName}<br />
+                            <b> Contact Id </b> : {!item.Id}<br />
+                            <b> Contact Number </b> : {!item.Phone}<br />
+                            <!-- <b> Parent Id </b>: {!item.AccountId}<br/> -->
+                        </div>
+                    </aura:iteration>
                 </div>
-            </lightning:layoutItem>
+            </lightning:layoutitem>
         </lightning:layout>
     </lightning:card>
-</aura:component>	
+</aura:component>
