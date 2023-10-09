@@ -1,0 +1,33 @@
+<aura:component controller="account_Contact_Event_Class">
+<aura:attribute name="steps" type="String" default="1" />
+<aura:attribute name="AccId" type="String"/>
+<aura:attribute name="ConId" type="String"/>
+<div class="one">
+    <lightning:progressIndicator currentStep="{!v.steps}" hasError="false">
+        <lightning:progressStep label="Account Created" value="1"/>
+        <lightning:progressStep label="Contact Created" value="2"/>
+        <lightning:progressStep label="Event  Created" value="3"/>
+        <!-- <lightning:progressStep label="Completed" value="4"/> -->
+    </lightning:progressIndicator>
+</div>
+<div>
+    <lightning:tabset selectedTabId="{!v.steps}" onselect="{!c.show}" >
+        <lightning:tab label="Account" id="1">
+            <lightning:input label="Name" aura:id="name" type="text"/>
+            <lightning:input label="Phone" aura:id="phone" type="text"/>
+            <lightning:button variant="brand" label="Next" onclick="{!c.show}"/>
+        </lightning:tab>
+        <lightning:tab label="Contact" id="2">
+            <lightning:input label="FirstName" aura:id="fname" type="text"/>
+            <lightning:input label="LastName" aura:id="lname" type="text"/>
+            <lightning:button variant="brand" label="previous" onclick="{!c.call}"/>
+            <lightning:button variant="brand" label="Next" onclick="{!c.show}"/>
+        </lightning:tab>
+        <lightning:tab label="Event" id="3">
+            <lightning:input label="Subject" aura:id="sub" type="text"/>
+            <lightning:button variant="brand" label="previous" onclick="{!c.call}"/>
+            <lightning:button variant="brand" label="Submit" onclick="{!c.show}"/>
+        </lightning:tab>
+    </lightning:tabset>
+</div>
+</aura:component>	
