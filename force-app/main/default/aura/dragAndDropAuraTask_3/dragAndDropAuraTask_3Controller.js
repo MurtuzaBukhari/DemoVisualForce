@@ -1,4 +1,5 @@
 ({
+    
     searchAcc1 : function(component, event, helper) {
         var acc1 = component.find("input1").get("v.value");
         console.log("Acc Id 1 "+acc1);
