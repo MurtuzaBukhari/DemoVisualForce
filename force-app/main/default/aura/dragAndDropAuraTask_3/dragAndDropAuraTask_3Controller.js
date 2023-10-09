@@ -7,11 +7,11 @@
             "searchKey1":acc1
         });
         create.setCallback(this, function(conRecord) {            
-            console.log("Record"+conRecord);
+            // console.log("Record"+conRecord);
             var sT = conRecord.getState();
-            console.log("State"+sT);
+            // console.log("State"+sT);
             var conId = conRecord.getReturnValue();
-            console.log("id"+conId);
+            // console.log("id"+conId);
             if (sT == "SUCCESS") {
                 component.set("v.paginationList_1",conRecord.getReturnValue());
                 alert("CONTACT UPLOADED SUCCESSFULY !....");
@@ -30,11 +30,11 @@
             "searchKey2":acc2
         });
         create.setCallback(this, function(conRecord) {            
-            console.log("Record"+conRecord);
+            // console.log("Record"+conRecord);
             var sT = conRecord.getState();
-            console.log("State"+sT);
+            // console.log("State"+sT);
             var conId = conRecord.getReturnValue();
-            console.log("id"+conId);
+            // console.log("id"+conId);
             if (sT == "SUCCESS") {
                 component.set("v.paginationList_2",conRecord.getReturnValue());
                 alert("CONTACT UPLOADED SUCCESSFULY !....");
@@ -46,7 +46,8 @@
         $A.enqueueAction(create);
     },
     dragStart : function(component, event, helper) {
-        console.log("Id"+event.target.id);
+        // console.log("Id"+event.target.id);
+
         event.dataTransfer.setData("Text",event.target.id);        
     },
     allowDrop : function(component, event, helper) {
@@ -58,6 +59,6 @@
     },
     onAcc2Drop : function(component, event, helper) {
         var acc2 = component.find("input2").get("v.value");
-        helper.updateAccount1(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc2);   
+        helper.updateAccount2(component, event, helper,event.dataTransfer.getData("Text",event.target.id),acc2);   
     }
 })
