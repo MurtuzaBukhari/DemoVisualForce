@@ -4,15 +4,18 @@
     <aura:attribute name="description" type="String" />
     <aura:attribute name="fontsize" type="String" />
     <aura:attribute name="fontColor" type="String" />
-    <style> 
+    <aura:html tag="style">
         :root {
-            --background-color : v.backgroundColor;
-            --font-size : v.fontsize;
-            -—font-color : v.fontColor;
+        --background-color:{!v.backgroundColor};
+        --font-size:{!v.fontsize};
+        --font-color:{!v.fontColor};
         }
-        </style>    
+    </aura:html>
     <div class="D1">
         <div class="img"> <img src="{!v.image}" alt="Image Upload" /> </div>
-        <div id="description">{!v.description}</div>
+        <div id="description" style="background-color: var(-—background-color); font-size: var(-—font-size); color: var(-—font-color);">{!v.description}</div>
     </div>
 </aura:component>
+<!-- background-color: var(-—background-color);
+    font-size: var(-—font-size);
+    color: var(-—font-color); -->
