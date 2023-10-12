@@ -1,7 +1,7 @@
-<design:component>
-    <design:attribute name="image" label="Image Url" />
-    <design:attribute name="backgroundColor" label="Background Color" />
-    <design:attribute name="description" label="Description" />
-    <design:attribute name="fontsize" label="Font size" />
-    <design:attribute name="fontColor" label="Font Color" />
+<design:component >
+    <design:attribute name="image" label="image" />
+    <design:attribute name="background" label="backgroundCOLOR" />
+    <design:attribute name="description" label="description" />
+    <design:attribute name="fontcolor" label="fontcolor" />
+    <design:attribute name="fontsize" label="fontsize" />
 </design:component>

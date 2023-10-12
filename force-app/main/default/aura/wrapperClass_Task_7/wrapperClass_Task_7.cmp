@@ -1,0 +1,45 @@
+<aura:component controller="wrapperClass_Task_7">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="wrapperClass" type="List" />
+    <div>
+        <table>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Id
+                </td>
+                <td>
+                    Contact
+                </td>
+                <td>
+                    Opportunity
+                </td>
+            </tr>
+       
+        <aura:iteration items="{!v.wrapperClass}" var="acc">
+            <tr>
+                <td>
+                    <lightning:input type="checkbox" value="{!acc.isSelected}"/>
+                </td>
+                <td>
+                    {!acc.objAcc.Name}
+                </td>
+                <td>
+                    {!acc.objAcc.Id}
+                </td>
+                <td>
+                    {!acc.objcon.LastName}
+                </td>
+                <td>
+                    {!acc.objopp.Name}
+                </td>
+            </tr>
+        </aura:iteration>
+    </table>
+    </div>
+</aura:component>	

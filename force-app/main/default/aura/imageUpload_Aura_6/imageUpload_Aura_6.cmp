@@ -1,21 +1,18 @@
-<aura:component implements="flexipage:availableForAllPageTypes">
-    <aura:attribute name="image" type="String" />
-    <aura:attribute name="backgroundColor" type="String" />
+<aura:component implements="flexipage:availableForAllPageTypes" >
+    <aura:attribute name="background" type="String"  />
     <aura:attribute name="description" type="String" />
-    <aura:attribute name="fontsize" type="String" />
-    <aura:attribute name="fontColor" type="String" />
+    <aura:attribute name="fontcolor" type="String" />
+    <aura:attribute name="fontsize" type="Integer" />
+    <aura:attribute name="image" type="String" />
     <aura:html tag="style">
-        :root {
-        --background-color:{!v.backgroundColor};
-        --font-size:{!v.fontsize};
-        --font-color:{!v.fontColor};
+        :root{
+            --backgroundColor : {!v.background};
+            --textColor : {!v.fontcolor};
+            --fontSize : {!v.fontsize + 'px'};
         }
     </aura:html>
-    <div class="D1">
-        <div class="img"> <img src="{!v.image}" alt="Image Upload" /> </div>
-        <div id="description" style="background-color: var(-—background-color); font-size: var(-—font-size); color: var(-—font-color);">{!v.description}</div>
-    </div>
+        <div id="mydiv" style="background-color: var(--backgroundColor);">
+            <img  src="{!v.image}" alt="image upload" />
+            <p  style="color: var(--textColor); font-size: var(--fontSize);">{!v.description}</p>
+        </div>
 </aura:component>
-<!-- background-color: var(-—background-color);
-    font-size: var(-—font-size);
-    color: var(-—font-color); -->
