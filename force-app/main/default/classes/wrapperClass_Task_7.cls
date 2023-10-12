@@ -2,16 +2,20 @@ public class wrapperClass_Task_7 {
     @AuraEnabled
     public static List<AccountWrapper> getAccount(){
         List<AccountWrapper> accList = new List<AccountWrapper>(); 
-        for (Account acc : [Select id,name from Account]) {
+        for (Account acc : [select id,Name,(select id,FirstName,LastName FROM Contacts ),(select id,name from opportunities ) From Account]) {
             AccountWrapper objWraAcc = new AccountWrapper();
             objWraAcc.isSelected = false;
             objWraAcc.objAcc = acc;
-            accList.add(objWraAcc);
-            for (Contact con : [SELECT LastName  FROM Contact WHERE AccountId =: acc.Id]) {    
-                objWraAcc.objcon = con;
-                accList.add(objWraAcc);
+            System.debug('Account : '+acc+' Contact : '+acc.Contacts+' Opportunity : '+ acc.opportunities);
+            if (acc.Contacts != null) {
+                // System.debug('Contact' + acc.Contacts);
+                objWraAcc.objcon = acc.Contacts;
             }
-            
+            if (acc.opportunities != null) {
+                // System.debug('Opportunity'+acc.opportunities);
+                objWraAcc.objopp = acc.opportunities;
+            }
+            accList.add(objWraAcc);
         }
             return accList;  
     } 
@@ -21,16 +25,18 @@ public class wrapperClass_Task_7 {
             @AuraEnabled
             public Account objAcc; 
             @AuraEnabled
-            public Contact objcon; 
+            public List<Contact> objcon; 
             @AuraEnabled
-            public Opportunity objopp;
+            public List<Opportunity> objopp;
         public AccountWrapper(){
             this.isSelected = false;
             this.objAcc = new  Account();
-            this.objcon = new  Contact();
-            this.objopp = new  Opportunity();
+            this.objcon = new  List<Contact>();
+            this.objopp = new  List<Opportunity>();
         }
     }
 }
 
 // (SELECT Id,Name FROM Contact),(SELECT Id,Name FROM Opportunity)
+// objWraAcc.objcon = acc.Contacts;
+// objWraAcc.objopp = acc.opportunities;

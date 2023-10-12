@@ -1,45 +1,51 @@
 <aura:component controller="wrapperClass_Task_7">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="wrapperClass" type="List" />
-    <div>
-        <table>
-            <tr>
-                <td>
-                    
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    Id
-                </td>
-                <td>
-                    Contact
-                </td>
-                <td>
-                    Opportunity
-                </td>
-            </tr>
-       
+    <aura:attribute name="wrapperClass1" type="List" />
+    <div class="slds-m-around_x-large">  
         <aura:iteration items="{!v.wrapperClass}" var="acc">
-            <tr>
-                <td>
-                    <lightning:input type="checkbox" value="{!acc.isSelected}"/>
-                </td>
-                <td>
-                    {!acc.objAcc.Name}
-                </td>
-                <td>
-                    {!acc.objAcc.Id}
-                </td>
-                <td>
-                    {!acc.objcon.LastName}
-                </td>
-                <td>
-                    {!acc.objopp.Name}
-                </td>
-            </tr>
+            <lightning:accordion >
+                <lightning:accordionSection name="{!acc.objAcc.Name}" label="{!acc.objAcc.Name}">
+                    <aura:set attribute="body">
+                        <b>Contact</b><br/>
+                        <aura:iteration items="{!acc.objcon}" var="con">
+                            {!con.LastName}
+                            <br/>
+                        </aura:iteration>
+                        <b>Opportunity</b><br/>
+                        <aura:iteration items="{!acc.objopp}" var="opp">
+                            {!opp.Name}
+                            <br/>
+                        </aura:iteration>
+                    </aura:set>
+                 </lightning:accordionSection>
+            </lightning:accordion>
         </aura:iteration>
-    </table>
+    
     </div>
 </aura:component>	
+<!-- 
+
+CONTACTS RECORDS
+                    <aura:iteration items="{!acc.objcon}" var="con">                     
+                        <table>
+                            <tr>
+                                <td>
+                                    {!con.LastName}
+                                </td>
+                            </tr>
+                        </table>
+                    </aura:iteration>
+                    <br/>
+                    <br/>
+                    <br/>
+                    OPPORTUNITY RECORDS
+                    <aura:iteration items="{!acc.objopp}" var="opp">                     
+                        <table>
+                            <tr>
+                                <td>
+                                    {!opp.Name}
+                                </td>
+                            </tr>
+                        </table>
+                    </aura:iteration> -->
