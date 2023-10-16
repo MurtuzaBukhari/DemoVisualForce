@@ -1,0 +1,5 @@
+<aura:component>
+    <aura:attribute name="image" type="List"  />
+    <lightning:input type="file" name="file" multiple="false" onchange="{!c.save}" aura:id="fileId"/>
+    <img src="{!v.image}" alt="Image Display Here" />
+</aura:component>

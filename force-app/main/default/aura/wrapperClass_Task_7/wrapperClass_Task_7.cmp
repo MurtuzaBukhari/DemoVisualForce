@@ -3,8 +3,8 @@
     <aura:attribute name="wrapperClass" type="List" />
     <aura:attribute name="wrapperClass1" type="List" />
     <div class="slds-m-around_x-large">  
-        <aura:iteration items="{!v.wrapperClass}" var="acc">
-            <lightning:accordion >
+    <lightning:accordion >
+            <aura:iteration items="{!v.wrapperClass}" var="acc">
                 <lightning:accordionSection name="{!acc.objAcc.Name}" label="{!acc.objAcc.Name}">
                     <aura:set attribute="body">
                         <b>Contact</b><br/>
@@ -19,9 +19,8 @@
                         </aura:iteration>
                     </aura:set>
                  </lightning:accordionSection>
-            </lightning:accordion>
         </aura:iteration>
-    
+    </lightning:accordion>
     </div>
 </aura:component>	
 <!-- 
