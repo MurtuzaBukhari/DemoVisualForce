@@ -1,5 +1,6 @@
 <aura:component>
-    <aura:attribute name="image" type="List"  />
-    <lightning:input type="file" name="file" multiple="false" onchange="{!c.save}" aura:id="fileId"/>
-    <img src="{!v.image}" alt="Image Display Here" />
+    <!-- <aura:attribute name="Img" type="List" /> -->
+    <aura:registerEvent name="sampleComponentEvent" type="c:childParentEvent"/>
+    <lightning:input type="file" name="file" multiple="false" aura:id="fileId" />
+    <lightning:button variant="base" label="Click Me" onclick="{!c.save}" />
 </aura:component>

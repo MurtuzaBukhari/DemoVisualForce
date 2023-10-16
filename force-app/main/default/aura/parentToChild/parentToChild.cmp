@@ -1,0 +1,8 @@
+<aura:component>
+    <aura:handler name="sampleComponentEvent" event="c:childParentEvent" action="{!c.doInit}"/>
+    <p>Child Component</p><br/>
+    <c:childToParent/><br/>
+    <p>Parent Component</p><br/>
+    <aura:attribute name="image" type="List"  /><br/>
+    <img src="{!v.image}" alt="Image Display Here" />
+</aura:component>	
