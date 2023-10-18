@@ -1,4 +1,4 @@
-<aura:component controller="ContactList">
+<aura:component controller="ContactList" implements="flexipage:availableForAllPageTypes">
 
 <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
 

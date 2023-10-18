@@ -1,4 +1,4 @@
-<aura:component controller="auraContatcCreateTask_1">
+<aura:component controller="auraContatcCreateTask_1" implements="flexipage:availableForAllPageTypes">
         <div class="slds-form-header">
             CONTACT  FORM 
         </div>

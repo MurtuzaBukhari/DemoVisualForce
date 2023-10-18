@@ -1,4 +1,4 @@
-<aura:component controller="account_Contact_Event_Class">
+<aura:component controller="account_Contact_Event_Class" implements="flexipage:availableForAllPageTypes">
 <aura:attribute name="steps" type="String" default="1" />
 <aura:attribute name="AccId" type="String"/>
 <aura:attribute name="ConId" type="String"/>

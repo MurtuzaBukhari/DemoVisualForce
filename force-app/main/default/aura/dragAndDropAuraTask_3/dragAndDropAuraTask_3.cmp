@@ -1,4 +1,4 @@
-<aura:component controller="dragAndDropClass" implements="force:appHostable" access="global">
+<aura:component controller="dragAndDropClass" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
     <aura:attribute name="paginationList_1" type="Contact[]" />
     <aura:attribute name="paginationList_2" type="Contact[]" />
     <lightning:card>
