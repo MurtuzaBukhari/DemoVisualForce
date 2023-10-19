@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="CONTACT" icon-name="standard:contact">
+        <div class="slds-p-around_x-small">
+            <lightning-input type="text" label="LastName" value={rec.Name}
+                onchange={chnageName}></lightning-input>
+            <lightning-input type="phone" label="Number" value={rec.Phone}
+                onchange={chnagenumber}></lightning-input>
+            <lightning-button variant="base" label="Create Contact" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
