@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 
-export default class FileUploadPTC extends LightningElement {
+export default class Parent extends LightningElement {
     image ="";
     show(event){
         const file = event.target.files[0];
