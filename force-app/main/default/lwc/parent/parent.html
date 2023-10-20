@@ -1,5 +1,7 @@
 <template>
-    <lightning-input type="file" onchange={show} ></lightning-input>
-    <!-- <img src={image} alt="Images">-->
-    <c-child message-from-parent={image}></c-child> 
+    <lightning-card title="Image Uploader" icon-name="standard:attach" variant="base">
+        <lightning-input type="file" onchange={show} accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf"></lightning-input>
+        <!-- <img src={image} alt="Images">-->
+        <c-child message-from-parent={image}></c-child>
+    </lightning-card>
 </template>

@@ -19,6 +19,7 @@ export default class CreateContactLwcTask_1 extends LightningElement {
         this.rec.Number = event.target.value;
     }
     handleClick(event){
+        console.log("Rec : ",this.rec);
         console.log("Number : "+this.rec.Number);
         console.log("Last Name : "+this.rec.LastName);      
         createContact({
