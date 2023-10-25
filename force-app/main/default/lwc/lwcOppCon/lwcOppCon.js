@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { subscribe, unsubscribe, MessageContext } from 'lightning/messageService';
-import ACCOUNT_SELECTED_MESSAGE from '@salesforce/messageChannel/AccountSelected__c';
+import AccountSelected from '@salesforce/messageChannel/AccountSelected__c';
 import getRelatedData from '@salesforce/apex/RelatedDataController.getRelatedData';
 
 export default class lwcOppCon extends LightningElement {
@@ -15,7 +15,7 @@ export default class lwcOppCon extends LightningElement {
     connectedCallback() {
         this.subscription = subscribe(
             this.messageContext,
-            ACCOUNT_SELECTED_MESSAGE,
+            AccountSelected,
             (message) => this.handleAccountSelection(message)
         );
     }

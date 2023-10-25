@@ -7,7 +7,7 @@ public class Contact_Pagination_class {
         totalRecords = [SELECT count() FROM Contact ];
     }
     public List<Contact> getCon(){
-        List<Contact> cons = Database.Query('SELECT Name,Phone,Id,AccountId FROM Contact LIMIT:size OFFSET:index');
+        List<Contact> cons = Database.Query('SELECT Name,Phone,Id FROM Contact LIMIT:size OFFSET:index');
         return cons; 
     }
     

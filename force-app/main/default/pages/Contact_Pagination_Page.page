@@ -1,5 +1,5 @@
 <apex:page controller="Contact_Pagination_class">
-<apex:form>
+<apex:form >
 <apex:pageBlock id="details">
     <apex:pageBlockTable value="{!con}" var="c">
         <apex:column value="{!c.Name}"/>
@@ -7,7 +7,7 @@
         <apex:column value="{!c.Id}"/>
         <apex:column value="{!c.AccountId}"/>
     </apex:pageBlockTable>
-    <apex:pageBlockButtons>
+    <apex:pageBlockButtons >
         <apex:commandButton value="First" reRender="details" action="{!first}" disabled="{!prev}"/>
         <apex:commandButton value="Previous" reRender="details" action="{!previous}" disabled="{!prev}"/>
         <apex:commandButton value="Next" reRender="details" action="{!next}" disabled="{!nxt}"/>
@@ -15,4 +15,4 @@
     </apex:pageBlockButtons>
 </apex:pageBlock>    
 </apex:form>    
-</apex:page> 
+</apex:page>
