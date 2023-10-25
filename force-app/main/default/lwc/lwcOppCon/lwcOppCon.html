@@ -1,0 +1,27 @@
+<template>
+    <template if:true={selectedAccountId}>
+        <div class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <h2 class="slds-text-heading_small slds-text-title_caps">Related Data</h2>
+            </div>
+            <div class="slds-card__body slds-p-around_small">
+                <template if:true={contacts.length}>
+                    <h3>Contacts:</h3>
+                    <ul>
+                        <template for:each={contacts} for:item="contact">
+                            <li key={contact.Id}>{contact.Name}</li>
+                        </template>
+                    </ul>
+                </template>
+                <template if:true={opportunities.length}>
+                    <h3>Opportunities:</h3>
+                    <ul>
+                        <template for:each={opportunities} for:item="opportunity">
+                            <li key={opportunity.Id}>{opportunity.Name}</li>
+                        </template>
+                    </ul>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

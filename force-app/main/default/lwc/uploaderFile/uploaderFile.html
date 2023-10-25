@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="File Uploader">
+        <input type="file" accept=".jpg, .jpeg, .png, .pdf" multiple onchange={handleFileChange}></input>
+        <template for:each={pagedFiles} for:item="file">
+            <div key={file.Id} class="file-info">
+                <a href={file.fileUrl} target="_blank" >{file.Title}</a>
+                <!-- <iframe src={file.fileUrl} width="100%" height="500" title={file.Title}></iframe> -->
+            </div>
+            <!-- <div if:true={file.showPreview} key={file.Id}> -->
+            <!-- </div> -->
+        </template>
+        
+        <!-- Pagination controls -->
+        <lightning-layout>
+            <lightning-layout-item size="4">
+                <lightning-button label="Previous" onclick={previousPage} ></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <p>Page {currentPage} of {totalPages}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <lightning-button label="Next" onclick={nextPage} ></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
