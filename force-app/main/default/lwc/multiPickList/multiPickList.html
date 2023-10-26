@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <lightning-card title="Object Search">
+            <!-- Search Bar -->
+            <lightning-input label="Search" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+
+            <!-- Multipicklist for selecting objects -->
+            <lightning-dual-listbox
+                label="Select Objects"
+                source-label="Available Objects"
+                selected-label="Selected Objects"
+                options={objectOptions}
+                value={selectedObjects}
+                onchange={handleObjectSelection}
+            ></lightning-dual-listbox>
+
+            <!-- Search Button -->
+            <lightning-button label="Search" onclick={handleSearch} variant="brand"></lightning-button>
+        </lightning-card>
+
+        <!-- Display search results -->
+        <template for:each={searchResults} for:item="result">
+            <lightning-card key={result.objectName} title={result.objectName}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={result.records}
+                    columns={result.columns}
+                ></lightning-datatable>
+            </lightning-card>
+        </template>
+    </div>
+</template>
