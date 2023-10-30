@@ -1,0 +1,8 @@
+<aura:component controller="assessmentClass" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <lightning:select aura:id="select" name="select" label="Select Status" onchange="{! c.onChange }">
+        <option value="">choose one...</option>
+        <option value="New">New</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Approved">Approved</option>
+    </lightning:select>
+</aura:component>

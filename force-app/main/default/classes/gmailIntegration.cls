@@ -1,8 +1,8 @@
 public class gmailIntegration{
     @AuraEnabled
-    public static void setRecord(String mailBody,String mailSubject,Blob img,String conId) {
+    public static void setRecord(String mailBody,String mailSubject,Blob img,String conId,String fileName) {
+        System.debug('Name : '+fileName);
         List<Contact> conList = [SELECT Email FROM Contact WHERE Id=:conId];
-        System.debug('ContentVersion'+[SELECT Id FROM ContentVersion WHERE ContentDocumentId =:conId]);
         String  email;
         for (Contact con : conList)
         {
@@ -21,10 +21,17 @@ public class gmailIntegration{
         req.setHeader('Content-Type', 'application/json');
         req.setEndpoint('callout:Gmail_API/gmail/v1/users/bukharimurtuza3@gmail.com/messages/send');
         req.setMethod('POST');
-        // system.debug(mbody);
         req.setBody(mbody);
         Http h = new Http();
         HttpResponse res = h.send(req);
         system.debug(res);
+
+        Attachment attachment = new Attachment();
+        attachment.ParentId = conId;
+        attachment.Body = img;
+        attachment.Name = fileName;
+        attachment.ContentType = 'image/png';
+        insert attachment;
     }
 }
+

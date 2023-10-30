@@ -23,28 +23,3 @@
     </lightning:accordion>
     </div>
 </aura:component>	
-<!-- 
-
-CONTACTS RECORDS
-                    <aura:iteration items="{!acc.objcon}" var="con">                     
-                        <table>
-                            <tr>
-                                <td>
-                                    {!con.LastName}
-                                </td>
-                            </tr>
-                        </table>
-                    </aura:iteration>
-                    <br/>
-                    <br/>
-                    <br/>
-                    OPPORTUNITY RECORDS
-                    <aura:iteration items="{!acc.objopp}" var="opp">                     
-                        <table>
-                            <tr>
-                                <td>
-                                    {!opp.Name}
-                                </td>
-                            </tr>
-                        </table>
-                    </aura:iteration> -->

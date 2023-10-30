@@ -4,6 +4,7 @@ export default class GmailIntegration extends LightningElement {
     subjectMail;
     bodyMail;
     image;
+    fileName;
     @api recordId;
     subChange(event){
         this.subjectMail = event.target.value;
@@ -15,18 +16,21 @@ export default class GmailIntegration extends LightningElement {
         let file = event.target.files[0];
         console.log("Files :",file);
         this.image = URL.createObjectURL(file);
+        this.fileName = file.name;
     }
     handleClick(event){
         console.log("recordId : "+this.recordId);
         console.log("URL : ",this.image);
         console.log("Subject : "+this.subjectMail);
         console.log("Body : "+this.bodyMail);
+        console.log("Name : "+this.fileName);
     
         setRecord({
             mailBody : this.bodyMail,
             mailSubject : this.subjectMail,
             img : this.image,
-            conId : this.recordId
+            conId : this.recordId,
+            fileName : this.fileName
         })
     }
 }
