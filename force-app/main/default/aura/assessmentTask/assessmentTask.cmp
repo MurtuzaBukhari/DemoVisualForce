@@ -5,4 +5,21 @@
         <option value="In Progress">In Progress</option>
         <option value="Approved">Approved</option>
     </lightning:select>
+    <aura:attribute name="wrapperClass" type="List" />
+    <aura:attribute name="contact" type="List" />
+    <lightning:accordion allowMultipleSectionsOpen="true">
+        <aura:iteration items="{!v.wrapperClass}" var="acc">
+            <lightning:accordionSection name="{!acc.Name}" label="{!acc.Name}">
+                <b><u><i>Contact : </i></u></b><br/><br/>
+                <aura:iteration items="{!v.contact}" var="con">
+                <aura:if isTrue="{!acc.Name == con.Account.Name}">
+                        {!con.LastName}
+                        <br/>
+                    </aura:if>
+                </aura:iteration>
+                <lightning:button variant="brand" value="{!acc.Id}" label="Preview" onclick="{!c.handleClick}">
+                </lightning:button>
+            </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
 </aura:component>

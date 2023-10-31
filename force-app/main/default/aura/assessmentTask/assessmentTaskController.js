@@ -10,7 +10,41 @@
             create.setParams({
                 "Status":status_1
             });
-            $A.enqueueAction(create);
         }
+        create.setCallback(this,function(response){
+            var state = response.getState();
+            if (state == "SUCCESS") {
+                var accList = response.getReturnValue();
+                console.log("List",accList);
+                component.set("v.wrapperClass",accList);
+                // accList.forEach(list => {
+                //     // console.log(list.objcon);
+                // });
+                // console.log("Contact : ",accList[8].objcon[4]);
+            }
+        });
+        $A.enqueueAction(create);
+    },
+    handleClick : function(component, event, helper) {
+        var id = event.target.value;
+        console.log("Id :"+id);
+        var create_2 = component.get("c.getContact");
+            create_2.setParams({
+                "conId":id
+            });
+            create_2.setCallback(this,function(response){
+                var state = response.getState();
+                if (state == "SUCCESS") {
+                    var conList = response.getReturnValue();
+                    console.log("List",conList);
+                    component.set("v.contact",conList);
+                    // console.log("Hello Hi");
+                    // conList.forEach(list => {
+                    //     console.log(list.Account.Name);
+                    // });
+                    // console.log("Contact : ",accList[8].objcon[4]);
+                }
+            });
+            $A.enqueueAction(create_2);
     }
 })

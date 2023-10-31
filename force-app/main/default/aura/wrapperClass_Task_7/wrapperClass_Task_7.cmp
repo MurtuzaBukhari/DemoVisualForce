@@ -1,7 +1,6 @@
 <aura:component controller="wrapperClass_Task_7" implements="flexipage:availableForAllPageTypes">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:attribute name="wrapperClass" type="List" />
-    <aura:attribute name="wrapperClass1" type="List" />
     <div class="slds-m-around_x-large">  
     <lightning:accordion >
             <aura:iteration items="{!v.wrapperClass}" var="acc">
