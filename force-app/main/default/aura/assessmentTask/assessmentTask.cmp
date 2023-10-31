@@ -1,4 +1,4 @@
-<aura:component controller="assessmentClass" implements="force:appHostable,flexipage:availableForAllPageTypes">
+<!-- <aura:component controller="assessmentClass" implements="force:appHostable,flexipage:availableForAllPageTypes">
     <b><u><i>Select Status</i></u></b>
     <lightning:select aura:id="select" name="select" label="" onchange="{! c.onChange }">
         <option value="">choose one...</option>
@@ -23,4 +23,26 @@
             </lightning:accordionSection>
         </aura:iteration>
     </lightning:accordion>
+</aura:component> -->
+<aura:component controller="assessmentClass" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <lightning:select aura:id="select" name="select" label="Select Status" onchange="{! c.onChange }">
+        <option value="">choose one...</option>
+        <option value="New">New</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Approved">Approved</option>
+    </lightning:select>
+    <aura:attribute name="wrapperClass" type="List" />
+    <lightning:accordion allowMultipleSectionsOpen="true" >
+        <aura:iteration items="{!v.wrapperClass}" var="acc">
+            <lightning:accordionSection name="{!acc.objAcc.Name}" label="{!acc.objAcc.Name}">
+                <aura:set attribute="body">
+                    <b><u><i>Contact : </i></u></b><br/>
+                    <aura:iteration items="{!acc.objcon}" var="con">
+                        {!con.LastName}
+                        <br/>
+                    </aura:iteration>
+                </aura:set>
+             </lightning:accordionSection>
+    </aura:iteration>
+</lightning:accordion>
 </aura:component>
