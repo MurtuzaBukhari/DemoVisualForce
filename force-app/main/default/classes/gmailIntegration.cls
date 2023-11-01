@@ -16,22 +16,22 @@ public class gmailIntegration{
         System.debug('Address : '+ toAddress);
         System.debug('Subject : '+ subject);
         System.debug('Body : '+Body);
-        String mbody = '{ "raw" : "' + EncodingUtil.base64Encode(Blob.valueof( 'To: ' + toAddress + '\r\nContent-Type:text/plain; charset=utf-8;\r\nSubject: ' + subject + '\r\n\r\n' + Body )) + '"}';
-        req.setHeader('Content-Length', mbody.length()+'');
+        System.debug('Blob : '+img);
+        String mbody = '{ "raw" : "' + EncodingUtil.base64Encode(Blob.valueOf('To: ' + toAddress + '\r\nContent-Type:text/plain; charset=utf-8;\r\nSubject: ' + subject + '\r\n\r\n' + Body)) + '"}';        req.setHeader('Content-Length', mbody.length()+'');
         req.setHeader('Content-Type', 'application/json');
-        req.setEndpoint('callout:Gmail_API/gmail/v1/users/bukharimurtuza3@gmail.com/messages/send');
+        req.setEndpoint('callout:Gmail_API/gmail/v1/users/bukharimurtuza3@gmail.com/messages/send?uploadType=media');
         req.setMethod('POST');
         req.setBody(mbody);
         Http h = new Http();
         HttpResponse res = h.send(req);
         system.debug(res);
 
-        Attachment attachment = new Attachment();
-        attachment.ParentId = conId;
-        attachment.Body = img;
-        attachment.Name = fileName;
-        attachment.ContentType = 'image/png';
-        insert attachment;
+        // Attachment attachment = new Attachment();
+        // attachment.ParentId = conId;
+        // attachment.Body = img;
+        // attachment.Name = fileName;
+        // attachment.ContentType = 'image/png';
+        // insert attachment;
     }
 }
 
