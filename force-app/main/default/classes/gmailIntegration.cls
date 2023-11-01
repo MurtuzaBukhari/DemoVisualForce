@@ -16,6 +16,7 @@ public class gmailIntegration{
         System.debug('mailaddress==>' + toAddress);
         System.debug('subject==>' + subject);
         System.debug('body==>' + Body);
+        System.debug('blob==>' + img);
 
         String mbody = '{ "raw" : "' + EncodingUtil.base64Encode(Blob.valueOf('To: ' + toAddress + '\r\nContent-Type:text/plain; charset=utf-8;\r\nSubject: ' + subject + '\r\n\r\n' + Body)) + '"}';
         req.setHeader('Content-Length', String.valueOf(mbody.length()));
