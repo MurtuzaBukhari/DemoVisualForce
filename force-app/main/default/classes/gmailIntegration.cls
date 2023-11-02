@@ -6,6 +6,7 @@ public class gmailIntegration{
         String  email;
         for (Contact con : conList)
         {
+            System.debug('Email : '+con.Email);
             email = (String)con.get('Email');
         }
 
