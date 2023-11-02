@@ -3,14 +3,11 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import setRecord from '@salesforce/apex/dropBoxIntegration.getRecord';
 export default class DropBoxIntegration extends LightningElement {
     image;
-    // fileName;
     fileData;
     @api recordId;
     show(event){
         let file = event.target.files[0];
         console.log("Files :",file);
-        // this.image = URL.createObjectURL(file);
-        // console.log("URL : ",this.image);
         var reader = new FileReader()
         reader.onload = () => {
             var base64 = reader.result.split(',')[1]
@@ -22,11 +19,6 @@ export default class DropBoxIntegration extends LightningElement {
             console.log("Data : ",this.fileData)
         }
         reader.readAsDataURL(file)
-        // setRecord({
-        //     img : this.image,
-        //     conId : this.recordId,
-        //     fileName : this.fileName
-        // })
     }
     handleClick(){
         const {base64, filename, recordId} = this.fileData
