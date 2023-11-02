@@ -4,6 +4,7 @@ public class dropBoxIntegration {
     System.debug('Id : '+recordId);
     System.debug('File Name : '+fileName);
     System.debug('File : '+base64);
+    System.debug('Debug : '+EncodingUtil.base64Decode(base64));
     ContentVersion cv = createContentVersion(base64, filename);
     ContentDocumentLink cdl = createContentLink(cv.Id, recordId);
     if (cv == null || cdl == null) { return null; }
